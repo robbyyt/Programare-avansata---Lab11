@@ -1,4 +1,4 @@
-package com.rob.pa.demo.models;
+package com.rob.pa.demo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,17 +6,28 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Players", schema = "ROBB")
+@Table(name = "Players")
 public class Player {
+    @Column(name = "USERNAME")
+    @Id
     private String username;
 
-    @Id
-    @Column(name = "USERNAME")
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Player(String username) {
+        this.username = username;
+    }
+
+    public Player() {}
+
+    @Override
+    public String toString() {
+        return "Player{" + "username='" + username + "'}";
     }
 }
